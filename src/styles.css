@@ -1,0 +1,196 @@
+.navmenu {
+  position: relative;
+  left: -50px;
+  top: 10px;
+}
+a {
+  --bs-link-color: rgb(144, 205, 255);
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+
+a:hover {
+  text-decoration: underline;
+  --bs-link-hover-color: rgb(170, 78, 255);
+}
+.active {
+  text-decoration: none;
+  color: gray;
+}
+/*switch*/
+.switch {
+  display: flex;
+  justify-content: end;
+}
+.onoffswitch {
+  position: relative;
+  top: -35px;
+  left: 90px;
+  width: 89px;
+}
+.onoffswitch-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #999999;
+  border-radius: 20px;
+}
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 16px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: " °C";
+  padding-left: 28px;
+  background-color: rgb(144, 205, 255);
+  color: #ffc917;
+}
+.onoffswitch-inner:after {
+  content: "℉";
+  padding-right: 28px;
+  background-color: #ffc917;
+  color: rgb(144, 205, 255);
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block;
+  width: 17px;
+  margin: 6.5px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 55px;
+  border: 2px solid #999999;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+}
+
+/*end of switch css*/
+.justify-content-center {
+  color: rgb(144, 205, 255);
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-size: 36px;
+}
+.search-form {
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+.d-flex {
+  justify-self: center;
+  margin: 0 auto;
+}
+
+.form-control {
+  border: 1mm solid rgb(144, 205, 255);
+  justify-content: center;
+
+  border-radius: 45rem;
+}
+
+.btn {
+  --bs-btn-color: #ffc917;
+  --bs-btn-bg: rgb(144, 205, 255);
+  --bs-btn-border-radius: 50%;
+  transition: all 0.4s ease-in;
+  margin: 2px;
+  justify-content: center;
+}
+
+.btn:hover {
+  --bs-btn-hover-color: rgb(144, 205, 255);
+  --bs-btn-hover-bg: #ffc917;
+  --bs-btn-border-radius: 50%;
+}
+
+.local {
+  --bs-btn-color: rgb(144, 205, 255);
+  --bs-btn-bg: #ffc917;
+  --bs-btn-border-radius: 50%;
+  transition: all 0.4s ease-in;
+  justify-content: center;
+}
+
+.local:hover {
+  --bs-btn-hover-color: #ffc917;
+  --bs-btn-hover-bg: rgb(144, 205, 255);
+  --bs-btn-border-radius: 50%;
+}
+.card {
+  display: block;
+  margin: 0 auto;
+}
+.city {
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  color: #ffc917;
+  text-transform: capitalize;
+}
+.temperature {
+  position: absolute;
+  left: 480px;
+  bottom: 30px;
+}
+.t-text {
+  font-size: 60px;
+  font-weight: 900;
+  color: rgb(80, 80, 80);
+}
+span {
+  font-size: 34px;
+  vertical-align: top;
+  font-weight: 600;
+}
+.t-feels {
+  margin-left: 40px;
+}
+.forecast {
+  text-align: center;
+}
+.card-text {
+  text-transform: capitalize;
+}
+.card-header,
+.card {
+  --bs-card-cap-bg: none;
+  color: #5e5e5e;
+  --bs-card-cap-color: none;
+  --bs-card-border-width: none;
+  --bs-card-border-color: none;
+  --bs-border-color-translucent: none;
+}
+
+.card-img-top {
+  display: block;
+  margin: 0 auto;
+}

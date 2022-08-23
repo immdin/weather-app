@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <link href="src/styles.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@500&family=Merriweather:wght@700&family=PT+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/e97d965809.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container navmenu">
+      <nav
+        style="
+          --bs-breadcrumb-divider: url(
+            &#34;data:image/svg + xml,
+            %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+          );
+        "
+        aria-label="breadcrumb"
+      >
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="https://www.gismeteo.ua/catalog/">World</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="https://www.gismeteo.ua/catalog/ukraine/">Ukraine</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a
+              href="https://www.gismeteo.ua/catalog/ukraine/autonomous-republic-crimea/"
+              >Crimea</a
+            >
+          </li>
+          <li class="breadcrumb-item active">
+            <a
+              class="active"
+              aria-current="page"
+              href="https://www.gismeteo.ua/weather-simferopol-4995/"
+            >
+              Simferopol
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="switch">
+      <div class="col-3">
+        <div class="onoffswitch">
+          <input
+            type="checkbox"
+            name="onoffswitch"
+            class="onoffswitch-checkbox"
+            id="myonoffswitch"
+            tabindex="0"
+            checked
+          />
+          <label class="onoffswitch-label" for="myonoffswitch">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <div class="col justify-content-center">Weather App</div>
+    </div>
+    <br />
+    <div class="search-form">
+      <div class="col-4">
+        <nav class="navbar">
+          <div class="container-fluid">
+            <form class="d-flex" id="search-form" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Enter a city"
+                aria-label="Search"
+                id="search-input"
+              />
+              <button class="btn" id="search-btn" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <button class="btn local" type="submit">
+                <i class="fa-solid fa-location-dot"></i>
+              </button>
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <br />
+    <div class="card mb-3" style="max-width: 700px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            src="img/Partly_Cloudy_with_Sun_Weather_Icon_PNG_Clip_Art-1501.png"
+            class="img-fluid rounded-start"
+            width="350px"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h1 class="card-title city" id="city-name">Simferopol</h1>
+            <br />
+            <p class="card-text">
+              <small class="text-muted" id="data"> </small>
+              <br />
+              <small class="text-muted descrip" id="data ">
+                Partly cloud cover
+              </small>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="container-text" style="font-size: 12px;">
+            <div class="row">
+              <div class="col">
+                <i class="fa-solid fa-wind"></i
+                ><small class="text-muted wind"> 13 km/h</small>
+              </div>
+              <div class="col">
+                <img src="img/humidity.png" width="10px" /><small
+                  class="text-muted humidity"
+                >
+                  86%</small
+                >
+              </div>
+              <div class="col">
+                <img src="img/pressure.png" width="10px" />
+                <small class="text-muted pressure"> 738 mmHg</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="temperature">
+        <div class="card-body">
+          <h1 class="card-title t-text" id="temperature">
+            +22°C
+          </h1>
+          <p class="card-text t-feels">
+            <small class="text-muted feels" id="farengheit"
+              >feels like +13°
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <div class="container">
+      <div class="card-group forecast">
+        <div class="card">
+          <div class="card-header">Fri</div>
+          <img src="img/sunny.png" style="width: 100px;" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title" id="farengheit">+27°</h5>
+            <p class="card-text">
+              <small class="text-muted" id="farengheit">+14°</small>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Sat</div>
+          <img src="img/sunny.png" style="width: 100px;" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title" id="farengheit">+28°</h5>
+            <p class="card-text">
+              <small class="text-muted" id="farengheit">+18°</small>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Sun</div>
+          <img src="img/sunny.png" style="width: 100px;" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title" id="farengheit">+28°</h5>
+            <p class="card-text">
+              <small class="text-muted" id="farengheit">+17°</small>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Mon</div>
+          <img src="img/sunny.png" style="width: 100px;" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title" id="farengheit">+24°</h5>
+            <p class="card-text">
+              <small class="text-muted" d="farengheit">+14°</small>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Tue</div>
+          <img src="img/sunny.png" style="width: 100px;" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title" id="farengheit">+25°</h5>
+            <p class="card-text">
+              <small class="text-muted" id="farengheit">+15°</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
